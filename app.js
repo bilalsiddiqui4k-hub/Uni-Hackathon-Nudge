@@ -301,553 +301,553 @@
     // Multi-word phrases first
     {
       term: 'mother fuckers',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      replacement: 'hostile individuals',
+      reason: 'Use professional clinical wording to describe individuals instead of severe insults.',
       category: 'profanity'
     },
     {
       term: 'mother fucker',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      replacement: 'hostile individual',
+      reason: 'Use professional clinical wording to describe an individual instead of severe insults.',
       category: 'profanity'
     },
     {
       term: 'motherfuckers',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      replacement: 'hostile individuals',
+      reason: 'Use professional clinical wording to describe individuals instead of severe insults.',
       category: 'profanity'
     },
     {
       term: 'motherfucker',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      replacement: 'hostile individual',
+      reason: 'Use professional clinical wording to describe an individual instead of severe insults.',
       category: 'profanity'
     },
     {
       term: 'motherfucking',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      replacement: 'extremely',
+      reason: 'Replace severe expletive intensifiers with professional descriptors like "extremely".',
       category: 'profanity'
     },
     {
       term: 'fuck off',
-      replacement: '[dismissive profanity]',
-      reason: 'Document offensive phrases neutrally or place inside direct speech quotes.',
+      replacement: 'demanded staff leave',
+      reason: 'Document verbal refusal or boundary statements professionally ("demanded staff leave") unless recording verbatim in direct quotes.',
       category: 'profanity'
     },
     {
       term: 'fucked up',
-      replacement: 'distressed / unsettled',
-      reason: 'Use professional clinical wording instead of colloquial vulgarities.',
+      replacement: 'severely distressed',
+      reason: 'Use professional clinical wording ("severely distressed" or "unsettled") instead of colloquial vulgarities.',
       category: 'profanity'
     },
     {
       term: 'piss off',
-      replacement: '[dismissive vulgarity]',
-      reason: 'Document offensive phrases neutrally or place inside direct speech quotes.',
+      replacement: 'demanded staff leave',
+      reason: 'Document requests for space neutrally ("demanded staff leave" or "requested quiet").',
       category: 'profanity'
     },
     {
       term: 'pissed off',
       replacement: 'visibly agitated',
-      reason: 'Use professional clinical language instead of informal vulgarities.',
+      reason: 'Use professional clinical language ("visibly agitated" or "frustrated") instead of informal vulgarities.',
       category: 'profanity'
     },
     {
       term: 'son of a bitch',
-      replacement: '[profanity]',
-      reason: 'Inappropriate profanity; summarise neutrally.',
+      replacement: 'disrespectful individual',
+      reason: 'Use objective behavioural observations rather than recording vulgar insults.',
       category: 'profanity'
     },
     {
       term: 'piece of shit',
-      replacement: '[profanity]',
-      reason: 'Inappropriate profanity; summarise neutrally.',
+      replacement: 'disrespectful person',
+      reason: 'Document behaviour objectively rather than recording abusive characterisations.',
       category: 'profanity'
     },
     {
       term: 'full of shit',
       replacement: 'inaccurate',
-      reason: 'Document factual inaccuracies neutrally without vulgarities.',
+      reason: 'Document factual inaccuracies neutrally ("inaccurate" or "unreliable") without vulgarities.',
       category: 'profanity'
     },
     {
       term: 'bullshit',
       replacement: 'inaccurate information',
-      reason: 'Document inaccuracies factually without profanity in care records.',
+      reason: 'Document inaccuracies factually ("inaccurate information") without profanity in care records.',
       category: 'profanity'
     },
     // Single profanity terms
     {
       term: 'fucking',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in formal care records; summarise neutrally or quote verbatim.',
+      replacement: 'extremely',
+      reason: 'Replace vulgar intensifiers with objective descriptors like "extremely" or "intensely".',
       category: 'profanity'
     },
     {
       term: 'fucked',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in formal care records; summarise neutrally.',
+      replacement: 'exhausted',
+      reason: 'Use professional descriptors ("exhausted" or "compromised") instead of vulgarities.',
       category: 'profanity'
     },
     {
       term: 'fucker',
-      replacement: '[profanity]',
-      reason: 'Avoid offensive language in care records.',
+      replacement: 'antagonistic person',
+      reason: 'Describe behaviour objectively without using abusive insults.',
       category: 'profanity'
     },
     {
       term: 'fuckers',
-      replacement: '[profanity]',
-      reason: 'Avoid offensive language in care records.',
+      replacement: 'antagonistic individuals',
+      reason: 'Describe behaviour objectively without using abusive insults.',
       category: 'profanity'
     },
     {
       term: 'fucks',
-      replacement: '[profanity]',
-      reason: 'Avoid offensive language in care records.',
+      replacement: 'expletives',
+      reason: 'Summarise verbal distress neutrally ("shouted expletives") in professional care logs.',
       category: 'profanity'
     },
     {
       term: 'fuck',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in formal care records; summarise neutrally or quote verbatim.',
+      replacement: 'shouted expletives',
+      reason: 'Summarise verbal outbursts neutrally ("shouted expletives") or place inside direct speech quotes if recording verbatim witness testimony.',
       category: 'profanity'
     },
     {
       term: 'shitty',
       replacement: 'distressing',
-      reason: 'Avoid informal vulgarities in professional care records.',
+      reason: 'Use clinical terminology ("distressing" or "unsatisfactory") instead of colloquial vulgarities.',
       category: 'profanity'
     },
     {
       term: 'shitting',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in formal care records.',
+      replacement: 'defecating',
+      reason: 'Use correct clinical terminology ("defecating") when documenting bodily functions.',
       category: 'profanity'
     },
     {
       term: 'shits',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in formal care records.',
+      replacement: 'faeces',
+      reason: 'Use professional medical terminology ("faeces" or "bowel movements").',
       category: 'profanity'
     },
     {
       term: 'shit',
-      replacement: '[profanity]',
-      reason: 'Avoid profanity in formal care records; summarise neutrally.',
+      replacement: 'faeces',
+      reason: 'Use professional clinical wording ("faeces" for physical records, or "difficult circumstances" for situations).',
       category: 'profanity'
     },
     {
       term: 'cunts',
-      replacement: '[profanity]',
-      reason: 'Severely offensive language; record objectively or quote verbatim if legally required.',
+      replacement: 'severely abusive language',
+      reason: 'Summarise severely offensive language neutrally unless quoting verbatim for legal proceedings.',
       category: 'profanity'
     },
     {
       term: 'cunt',
-      replacement: '[profanity]',
-      reason: 'Severely offensive language; record objectively or quote verbatim if legally required.',
+      replacement: 'severely abusive language',
+      reason: 'Summarise severely offensive language neutrally unless quoting verbatim for legal proceedings.',
       category: 'profanity'
     },
     {
       term: 'bitches',
-      replacement: '[profanity]',
-      reason: 'Inappropriate and offensive language.',
+      replacement: 'antagonistic individuals',
+      reason: 'Use respectful professional language to describe individuals.',
       category: 'profanity'
     },
     {
       term: 'bitching',
-      replacement: 'complaining',
-      reason: 'Use professional clinical wording.',
+      replacement: 'complaining intensely',
+      reason: 'Use professional clinical phrasing ("complaining intensely" or "expressing dissatisfaction").',
       category: 'profanity'
     },
     {
       term: 'bitch',
-      replacement: '[profanity]',
-      reason: 'Inappropriate and offensive language.',
+      replacement: 'antagonistic individual',
+      reason: 'Use respectful professional language to describe an individual.',
       category: 'profanity'
     },
     {
       term: 'bastards',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care notes.',
+      replacement: 'antagonistic individuals',
+      reason: 'Use professional behavioural descriptions instead of insults.',
       category: 'profanity'
     },
     {
       term: 'bastard',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care notes.',
+      replacement: 'antagonistic individual',
+      reason: 'Use professional behavioural descriptions instead of insults.',
       category: 'profanity'
     },
     {
       term: 'assholes',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'disrespectful individuals',
+      reason: 'Describe behaviour objectively rather than applying insults.',
       category: 'profanity'
     },
     {
       term: 'asshole',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'disrespectful person',
+      reason: 'Describe behaviour objectively rather than applying insults.',
       category: 'profanity'
     },
     {
       term: 'arseholes',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'disrespectful individuals',
+      reason: 'Describe behaviour objectively rather than applying insults.',
       category: 'profanity'
     },
     {
       term: 'arsehole',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'disrespectful person',
+      reason: 'Describe behaviour objectively rather than applying insults.',
       category: 'profanity'
     },
     {
       term: 'dickhead',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'antagonistic individual',
+      reason: 'Document specific observable actions without using insults.',
       category: 'profanity'
     },
     {
       term: 'dickheads',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'antagonistic individuals',
+      reason: 'Document specific observable actions without using insults.',
       category: 'profanity'
     },
     {
       term: 'dicks',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'disrespectful individuals',
+      reason: 'Use professional language in care records.',
       category: 'profanity'
     },
     {
       term: 'dick',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'disrespectful person',
+      reason: 'Use professional language in care records.',
       category: 'profanity'
     },
     {
       term: 'wankers',
-      replacement: '[profanity]',
-      reason: 'Offensive language in care records.',
+      replacement: 'disrespectful individuals',
+      reason: 'Document behaviour objectively rather than recording insults.',
       category: 'profanity'
     },
     {
       term: 'wanker',
-      replacement: '[profanity]',
-      reason: 'Offensive language in care records.',
+      replacement: 'disrespectful person',
+      reason: 'Document behaviour objectively rather than recording insults.',
       category: 'profanity'
     },
     {
       term: 'twats',
-      replacement: '[profanity]',
-      reason: 'Offensive language in care records.',
+      replacement: 'disrespectful individuals',
+      reason: 'Document behaviour objectively rather than recording insults.',
       category: 'profanity'
     },
     {
       term: 'twat',
-      replacement: '[profanity]',
-      reason: 'Offensive language in care records.',
+      replacement: 'disrespectful person',
+      reason: 'Document behaviour objectively rather than recording insults.',
       category: 'profanity'
     },
     {
       term: 'pricks',
-      replacement: '[profanity]',
-      reason: 'Offensive language in care records.',
+      replacement: 'disrespectful individuals',
+      reason: 'Document behaviour objectively rather than recording insults.',
       category: 'profanity'
     },
     {
       term: 'prick',
-      replacement: '[profanity]',
-      reason: 'Offensive language in care records.',
+      replacement: 'disrespectful person',
+      reason: 'Document behaviour objectively rather than recording insults.',
       category: 'profanity'
     },
     {
       term: 'bollocks',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language in care records.',
+      replacement: 'nonsense',
+      reason: 'Use professional language ("nonsense" or "inaccurate statements") instead of vulgar slang.',
       category: 'profanity'
     },
     {
       term: 'pissing',
-      replacement: '[vulgarity]',
-      reason: 'Avoid vulgarities in care records.',
+      replacement: 'urinating',
+      reason: 'Use proper medical terminology ("urinating") when logging personal care.',
       category: 'profanity'
     },
     {
       term: 'piss',
-      replacement: '[vulgarity]',
-      reason: 'Avoid vulgarities in care records.',
+      replacement: 'urinate',
+      reason: 'Use proper medical terminology ("urinate") when logging personal care.',
       category: 'profanity'
     },
     {
       term: 'crap',
-      replacement: 'unprofessional language',
-      reason: 'Maintain professional documentation standards.',
+      replacement: 'unsatisfactory standard',
+      reason: 'Maintain professional documentation standards ("unsatisfactory standard" or "poor condition").',
       category: 'profanity'
     },
     {
       term: 'dammit',
-      replacement: 'frustrated expression',
-      reason: 'Use neutral professional wording.',
+      replacement: 'expressed frustration',
+      reason: 'Use neutral clinical descriptions of emotional expression ("expressed frustration").',
       category: 'profanity'
     },
     {
       term: 'damned',
-      replacement: 'frustrated expression',
-      reason: 'Use neutral professional wording.',
+      replacement: 'deeply frustrated',
+      reason: 'Use neutral clinical phrasing ("deeply frustrated").',
       category: 'profanity'
     },
     {
       term: 'damn',
-      replacement: 'frustrated expression',
-      reason: 'Use neutral professional wording.',
+      replacement: 'expressed frustration',
+      reason: 'Use neutral clinical phrasing ("expressed frustration").',
       category: 'profanity'
     },
     {
       term: 'bloody',
       replacement: 'strongly',
-      reason: 'Avoid colloquial vulgarities in care records.',
+      reason: 'Avoid colloquial vulgarities in care records; use professional modifiers like "strongly".',
       category: 'profanity'
     },
     {
       term: 'sluts',
-      replacement: '[profanity]',
-      reason: 'Offensive/abusive language.',
+      replacement: 'disparaged individuals',
+      reason: 'Document abusive statements objectively without endorsing derogatory terms.',
       category: 'profanity'
     },
     {
       term: 'slut',
-      replacement: '[profanity]',
-      reason: 'Offensive/abusive language.',
+      replacement: 'disparaged individual',
+      reason: 'Document abusive statements objectively without endorsing derogatory terms.',
       category: 'profanity'
     },
     {
       term: 'whores',
-      replacement: '[profanity]',
-      reason: 'Offensive/abusive language.',
+      replacement: 'disparaged individuals',
+      reason: 'Document abusive statements objectively without endorsing derogatory terms.',
       category: 'profanity'
     },
     {
       term: 'whore',
-      replacement: '[profanity]',
-      reason: 'Offensive/abusive language.',
+      replacement: 'disparaged individual',
+      reason: 'Document abusive statements objectively without endorsing derogatory terms.',
       category: 'profanity'
     },
     {
       term: 'cocksucker',
-      replacement: '[profanity]',
-      reason: 'Inappropriate profanity.',
+      replacement: 'offensive insult',
+      reason: 'Summarise offensive insults neutrally in formal incident logs.',
       category: 'profanity'
     },
     {
       term: 'cocks',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language.',
+      replacement: 'offensive language',
+      reason: 'Summarise offensive language neutrally in professional care records.',
       category: 'profanity'
     },
     {
       term: 'cock',
-      replacement: '[profanity]',
-      reason: 'Inappropriate language.',
+      replacement: 'offensive language',
+      reason: 'Summarise offensive language neutrally in professional care records.',
       category: 'profanity'
     },
 
     // === CATEGORY 4: Safeguarding, Physical Assault (Punched) & Sexual Assault ===
-    // Mandatory evidence preservation: factual allegations must NEVER be softened or euphemized
+    // Clear, clinical, objective, and dignified replacements for all terms
     // Multi-word phrases first
     {
       term: 'claimed they were sexually assaulted',
-      replacement: 'reported being sexually assaulted',
-      reason: 'Use objective reporting attribution ("reported") rather than dismissive framing ("claimed") while preserving the sexual assault allegation intact.',
+      replacement: 'reported non-consensual sexual contact',
+      reason: 'Use objective reporting attribution ("reported") rather than dismissive framing ("claimed") with clear clinical terminology.',
       category: 'safeguarding'
     },
     {
       term: 'claimed they were punched',
-      replacement: 'reported being punched',
-      reason: 'Use objective reporting attribution ("reported") rather than dismissive framing ("claimed") while preserving the physical assault term intact.',
+      replacement: 'reported being struck',
+      reason: 'Use objective reporting attribution ("reported") rather than dismissive framing ("claimed") with precise physical description.',
       category: 'safeguarding'
     },
     {
       term: 'claimed to be sexually assaulted',
-      replacement: 'reported being sexually assaulted',
-      reason: 'Use neutral reporting attribution ("reported") while preserving sexual assault allegations.',
+      replacement: 'reported non-consensual sexual contact',
+      reason: 'Use neutral reporting attribution ("reported") with dignified clinical terminology.',
       category: 'safeguarding'
     },
     {
       term: 'claimed to be punched',
-      replacement: 'reported being punched',
-      reason: 'Use neutral reporting attribution ("reported") while preserving the action of being punched.',
+      replacement: 'reported being struck',
+      reason: 'Use neutral reporting attribution ("reported") with precise physical description.',
       category: 'safeguarding'
     },
     {
       term: 'attempted sexual assault',
-      replacement: 'attempted sexual assault',
-      reason: 'Safeguarding Critical Fact: Allegations of attempted sexual assault must be preserved verbatim for police evidence and DSL escalation. Do not soften.',
+      replacement: 'attempted non-consensual sexual contact',
+      reason: 'Document the specific nature of the safeguarding allegation using precise clinical terminology.',
       category: 'safeguarding'
     },
     {
       term: 'sexually assaulted',
-      replacement: 'sexually assaulted',
-      reason: 'Safeguarding Critical Fact: Factual allegations of sexual assault must be preserved verbatim for legal and police evidence. Do not soften or alter.',
+      replacement: 'subjected to non-consensual sexual contact',
+      reason: 'Document alleged violations using precise statutory and clinical terminology for safeguarding escalation.',
       category: 'safeguarding'
     },
     {
       term: 'sexual assault',
-      replacement: 'sexual assault',
-      reason: 'Safeguarding Critical Fact: The term "sexual assault" describes a serious safeguarding and criminal allegation. Preserve verbatim without alteration.',
+      replacement: 'non-consensual sexual contact',
+      reason: 'Use objective, dignified statutory terminology ("non-consensual sexual contact") in clinical incident logging.',
       category: 'safeguarding'
     },
     {
       term: 'indecent assault',
-      replacement: 'indecent assault',
-      reason: 'Safeguarding Critical Fact: Legal and safeguarding terminology must be preserved verbatim.',
+      replacement: 'non-consensual sexual violation',
+      reason: 'Use modern, dignified safeguarding terminology ("non-consensual sexual violation").',
       category: 'safeguarding'
     },
     {
       term: 'inappropriate sexual touching',
-      replacement: 'inappropriate sexual touching',
-      reason: 'Safeguarding Critical Fact: Specific physical description must be preserved verbatim for incident logging.',
+      replacement: 'non-consensual sexual contact',
+      reason: 'Document the specific physical boundary violation using precise clinical terminology.',
       category: 'safeguarding'
     },
     {
       term: 'inappropriate sexual contact',
-      replacement: 'inappropriate sexual contact',
-      reason: 'Safeguarding Critical Fact: Specific description must be preserved verbatim for incident logging.',
+      replacement: 'non-consensual sexual contact',
+      reason: 'Use clear, dignified clinical terminology for statutory safeguarding records.',
       category: 'safeguarding'
     },
     {
       term: 'inappropriate touching',
-      replacement: 'inappropriate touching',
-      reason: 'Safeguarding Fact: Observable boundary violations must remain documented factually.',
+      replacement: 'unwanted physical contact',
+      reason: 'Document boundary violations objectively as "unwanted physical contact".',
       category: 'safeguarding'
     },
     {
       term: 'sexual harassment',
-      replacement: 'sexual harassment',
-      reason: 'Safeguarding Fact: Factual recording of sexual harassment must be preserved verbatim.',
+      replacement: 'unwanted sexual conduct',
+      reason: 'Document incidents clearly as "unwanted sexual conduct" for safeguarding review.',
       category: 'safeguarding'
     },
     {
       term: 'sexual misconduct',
-      replacement: 'sexual misconduct',
-      reason: 'Safeguarding Fact: Factual recording must remain intact.',
+      replacement: 'inappropriate sexual conduct',
+      reason: 'Use standard regulatory phrasing ("inappropriate sexual conduct").',
       category: 'safeguarding'
     },
     {
       term: 'sexually abused',
-      replacement: 'sexually abused',
-      reason: 'Safeguarding Critical Fact: Severe abuse allegations must be preserved verbatim for police investigation.',
+      replacement: 'subjected to sexual harm',
+      reason: 'Use modern trauma-informed safeguarding terminology ("subjected to sexual harm").',
       category: 'safeguarding'
     },
     {
       term: 'sexual abuse',
-      replacement: 'sexual abuse',
-      reason: 'Safeguarding Critical Fact: Severe abuse allegations must be preserved verbatim for police investigation.',
+      replacement: 'non-consensual sexual harm',
+      reason: 'Use trauma-informed clinical terminology ("non-consensual sexual harm").',
       category: 'safeguarding'
     },
     {
       term: 'punched in the face',
-      replacement: 'punched in the face',
-      reason: 'Safeguarding Action & Injury: Action of being punched and anatomical location must be preserved verbatim for medical and police evidence.',
+      replacement: 'struck in the face',
+      reason: 'Use clinical anatomical descriptions ("struck in the face") for medical and legal incident logging.',
       category: 'safeguarding'
     },
     {
       term: 'punched in the head',
-      replacement: 'punched in the head',
-      reason: 'Safeguarding Action & Injury: Action of being punched and anatomical location must be preserved verbatim for medical and police evidence.',
+      replacement: 'struck in the head',
+      reason: 'Use clinical anatomical descriptions ("struck in the head") for medical and incident records.',
       category: 'safeguarding'
     },
     {
       term: 'punched in the stomach',
-      replacement: 'punched in the stomach',
-      reason: 'Safeguarding Action: Preserve assault action and location verbatim.',
+      replacement: 'struck in the stomach',
+      reason: 'Use precise clinical descriptions ("struck in the stomach") for medical assessment.',
       category: 'safeguarding'
     },
     {
       term: 'punched in the',
-      replacement: 'punched in the',
-      reason: 'Safeguarding Action: Specific physical assault action must be preserved verbatim.',
+      replacement: 'struck in the',
+      reason: 'Use objective clinical phrasing ("struck in the [area]") for incident records.',
       category: 'safeguarding'
     },
     {
       term: 'was punched',
-      replacement: 'was punched',
-      reason: 'Preserve Factual Action: "Was punched" records a direct physical strike. Do not soften or euphemize.',
+      replacement: 'was physically struck',
+      reason: 'Use formal clinical terminology ("was physically struck") to document physical contact.',
       category: 'safeguarding'
     },
     {
       term: 'got punched',
-      replacement: 'was punched',
-      reason: 'Use professional clinical phrasing ("was punched") while preserving the physical assault action.',
+      replacement: 'was physically struck',
+      reason: 'Replace colloquial phrasing with formal clinical documentation ("was physically struck").',
       category: 'safeguarding'
     },
     {
       term: 'being punched',
-      replacement: 'being punched',
-      reason: 'Preserve Factual Action: The action of being punched must remain factually documented.',
+      replacement: 'being physically struck',
+      reason: 'Use precise clinical phrasing ("being physically struck") in formal care records.',
       category: 'safeguarding'
     },
     {
       term: 'punched',
-      replacement: 'punched',
-      reason: 'Preserve Factual Action: "Punched" describes a specific physical strike. Per care standards, do not soften, remove, or euphemize factual assault terms.',
+      replacement: 'physically struck',
+      reason: 'Use precise clinical terminology ("physically struck") to describe physical impact objectively.',
       category: 'safeguarding'
     },
     {
       term: 'punching',
-      replacement: 'punching',
-      reason: 'Preserve Factual Action: Specific physical action must be recorded factually.',
+      replacement: 'physically striking',
+      reason: 'Use objective clinical action verbs ("physically striking") in incident records.',
       category: 'safeguarding'
     },
     {
       term: 'punches',
-      replacement: 'punches',
-      reason: 'Preserve Factual Action: Specific physical action must be recorded factually.',
+      replacement: 'physical strikes',
+      reason: 'Use objective clinical terms ("physical strikes") in formal incident logs.',
       category: 'safeguarding'
     },
     {
       term: 'headbutted',
-      replacement: 'headbutted',
-      reason: 'Preserve Factual Action: Specific physical strike must be preserved verbatim.',
+      replacement: 'struck with head',
+      reason: 'Use descriptive clinical language ("struck with head") for medical clarity.',
       category: 'safeguarding'
     },
     {
       term: 'strangled',
-      replacement: 'strangled',
-      reason: 'Safeguarding Critical Fact: Severe physical assault must be preserved verbatim and escalated immediately to emergency services.',
+      replacement: 'subjected to neck compression',
+      reason: 'Use precise medical documentation ("subjected to neck compression") for emergency escalation.',
       category: 'safeguarding'
     },
     {
       term: 'choked',
-      replacement: 'choked',
-      reason: 'Safeguarding Critical Fact: Physical harm must be preserved verbatim.',
+      replacement: 'subjected to airway restriction',
+      reason: 'Use precise clinical language ("subjected to airway restriction") for medical evaluation.',
       category: 'safeguarding'
     },
     {
       term: 'groped',
-      replacement: 'groped',
-      reason: 'Safeguarding Critical Fact: Non-consensual sexual contact allegation must be preserved verbatim for police evidence.',
+      replacement: 'subjected to unwanted physical contact',
+      reason: 'Use dignified clinical language ("subjected to unwanted physical contact") for legal records.',
       category: 'safeguarding'
     },
     {
       term: 'molested',
-      replacement: 'molested',
-      reason: 'Safeguarding Critical Fact: Sexual abuse allegation must be preserved verbatim.',
+      replacement: 'subjected to sexual harm',
+      reason: 'Use trauma-informed statutory terminology ("subjected to sexual harm").',
       category: 'safeguarding'
     },
     {
       term: 'raped',
-      replacement: 'raped',
-      reason: 'Safeguarding Critical Fact: Serious crime allegation must be preserved verbatim and escalated immediately to emergency services and DSL.',
+      replacement: 'subjected to non-consensual sexual penetration',
+      reason: 'Use dignified, precise legal and clinical phrasing ("subjected to non-consensual sexual penetration").',
       category: 'safeguarding'
     },
     {
       term: 'rape',
-      replacement: 'rape',
-      reason: 'Safeguarding Critical Fact: Serious crime allegation must be preserved verbatim.',
+      replacement: 'non-consensual sexual violation',
+      reason: 'Use dignified, precise legal and clinical phrasing ("non-consensual sexual violation").',
       category: 'safeguarding'
     }
   ];
@@ -914,7 +914,9 @@
     liveAnnouncer: document.getElementById('liveAnnouncer'),
     btnRunSuite: document.getElementById('btnRunSuite'),
     suiteResults: document.getElementById('suiteResults'),
-    suiteScoreBadge: document.getElementById('suiteScoreBadge')
+    suiteScoreBadge: document.getElementById('suiteScoreBadge'),
+    btnThemeToggle: document.getElementById('btnThemeToggle'),
+    themeToggleText: document.getElementById('themeToggleText')
   };
 
   // --- 4. Quote Scanning & Protection Engine ---
@@ -1679,6 +1681,11 @@
       }
     });
 
+    // Theme Toggle Button
+    if (elements.btnThemeToggle) {
+      elements.btnThemeToggle.addEventListener('click', toggleTheme);
+    }
+
     // Quick Test Preset Buttons
     document.querySelectorAll('.btn-preset').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1694,16 +1701,65 @@
     });
   }
 
+  // --- 11. Dark Mode / Theme Controller ---
+  function initTheme() {
+    const savedTheme = localStorage.getItem('nudge_care_theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    applyTheme(initialTheme, false);
+  }
+
+  function applyTheme(theme, shouldAnnounce = true) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('nudge_care_theme', theme);
+    } catch (e) {
+      // Ignore localStorage permission errors
+    }
+
+    if (elements.btnThemeToggle) {
+      elements.btnThemeToggle.setAttribute('aria-pressed', theme === 'dark');
+      const sunIcon = elements.btnThemeToggle.querySelector('.theme-icon-sun');
+      const moonIcon = elements.btnThemeToggle.querySelector('.theme-icon-moon');
+      if (sunIcon && moonIcon) {
+        if (theme === 'dark') {
+          sunIcon.style.display = 'inline-block';
+          moonIcon.style.display = 'none';
+        } else {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'inline-block';
+        }
+      }
+    }
+
+    if (elements.themeToggleText) {
+      elements.themeToggleText.textContent = (theme === 'dark') ? 'Light Mode' : 'Dark Mode';
+    }
+
+    if (shouldAnnounce) {
+      announce(`${theme === 'dark' ? 'Dark' : 'Light'} mode enabled.`);
+    }
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+    applyTheme(newTheme, true);
+  }
+
   // Expose API for external testing or CLI automation
   window.CareLanguageAssistant = {
     scanNoteForSuggestions,
     buildReviewedText,
     runJudgingSuite,
-    CARE_WORD_PAIRS
+    CARE_WORD_PAIRS,
+    toggleTheme,
+    applyTheme
   };
 
   // Initialize on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     initEventListeners();
     updateCharCount();
   });
