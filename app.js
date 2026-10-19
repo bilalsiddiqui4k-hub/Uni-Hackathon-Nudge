@@ -6,60 +6,658 @@
 (function () {
   'use strict';
 
-  // --- 1. The Ten Assessed Care Word Pairs ---
-  // Strictly sorted with longer/compound phrases first to guarantee priority matching
-  const CARE_WORD_PAIRS = [
+  // --- 1. Comprehensive Care & Tone Dictionaries ---
+  // Categorized into Core (10 assessed pairs), Aggressive/Subjective labels, and Profanity/Swearing.
+  // Strictly sorted with longer/compound phrases first to guarantee priority matching.
+  const ALL_DICTIONARY_PAIRS = [
+    // === CATEGORY 1: Core Assessed Workshop Pairs (Omega 2026 Core) ===
     {
       term: 'service users',
       replacement: 'people we support',
-      reason: 'Use person-focused wording in this care note.'
+      reason: 'Use person-focused wording in this care note.',
+      category: 'core'
     },
     {
       term: 'service user',
       replacement: 'person we support',
-      reason: 'Use person-focused wording in this care note.'
+      reason: 'Use person-focused wording in this care note.',
+      category: 'core'
     },
     {
       term: 'clients',
       replacement: 'people we support',
-      reason: 'Use person-focused wording in this care note.'
+      reason: 'Use person-focused wording in this care note.',
+      category: 'core'
     },
     {
       term: 'client',
       replacement: 'person we support',
-      reason: 'Use person-focused wording in this care note.'
+      reason: 'Use person-focused wording in this care note.',
+      category: 'core'
     },
     {
       term: 'family contact',
       replacement: 'family time',
-      reason: 'Use family-centred language in this care note.'
+      reason: 'Use family-centred language in this care note.',
+      category: 'core'
     },
     {
       term: 'contact centre',
       replacement: 'family centre',
-      reason: 'Use family-centred language in this care note.'
+      reason: 'Use family-centred language in this care note.',
+      category: 'core'
     },
     {
       term: 'care leaver',
       replacement: 'care-experienced person',
-      reason: 'Use non-stigmatising, person-centred language in this care note.'
+      reason: 'Use non-stigmatising, person-centred language in this care note.',
+      category: 'core'
     },
     {
       term: 'foster placement',
       replacement: 'foster home',
-      reason: 'Use homely, child-centred language in this care note.'
+      reason: 'Use homely, child-centred language in this care note.',
+      category: 'core'
     },
     {
       term: 'residential placement',
       replacement: "children's home",
-      reason: 'Use homely, child-centred language in this care note.'
+      reason: 'Use homely, child-centred language in this care note.',
+      category: 'core'
     },
     {
       term: 'looked-after child',
       replacement: 'child in care',
-      reason: 'Use respectful, person-centred language in this care note.'
+      reason: 'Use respectful, person-centred language in this care note.',
+      category: 'core'
+    },
+
+    // === CATEGORY 2: Aggressive & Subjective Care Language ===
+    // Longer compound phrases first
+    {
+      term: 'challenging behaviours',
+      replacement: 'distressed behaviours',
+      reason: 'Use person-centred wording; behaviour communicates distress or unmet needs.',
+      category: 'aggressive'
+    },
+    {
+      term: 'challenging behavior',
+      replacement: 'distressed behaviour',
+      reason: 'Use person-centred wording; behaviour communicates distress or unmet needs.',
+      category: 'aggressive'
+    },
+    {
+      term: 'challenging behaviour',
+      replacement: 'distressed behaviour',
+      reason: 'Use person-centred wording; behaviour communicates distress or unmet needs.',
+      category: 'aggressive'
+    },
+    {
+      term: 'challenging behaviors',
+      replacement: 'distressed behaviours',
+      reason: 'Use person-centred wording; behaviour communicates distress or unmet needs.',
+      category: 'aggressive'
+    },
+    {
+      term: 'physically aggressive',
+      replacement: 'experiencing high physical agitation',
+      reason: 'Describe observable actions neutrally rather than using subjective aggressive labels.',
+      category: 'aggressive'
+    },
+    {
+      term: 'verbally aggressive',
+      replacement: 'verbally expressing distress',
+      reason: 'Describe the person’s communication neutrally rather than labelling them aggressive.',
+      category: 'aggressive'
+    },
+    {
+      term: 'verbally abusive',
+      replacement: 'shouting in distress',
+      reason: 'State specific observable actions rather than applying abusive labels.',
+      category: 'aggressive'
+    },
+    {
+      term: 'physically abusive',
+      replacement: 'physically expressing distress',
+      reason: 'Document specific physical actions factually rather than applying labels.',
+      category: 'aggressive'
+    },
+    {
+      term: 'temper tantrums',
+      replacement: 'distress episodes',
+      reason: 'Use dignified, age-appropriate terminology for emotional overwhelm.',
+      category: 'aggressive'
+    },
+    {
+      term: 'temper tantrum',
+      replacement: 'distress episode',
+      reason: 'Use dignified, age-appropriate terminology for emotional overwhelm.',
+      category: 'aggressive'
+    },
+    {
+      term: 'out of control',
+      replacement: 'experiencing overwhelm',
+      reason: 'Describe observable signs of emotional distress neutrally.',
+      category: 'aggressive'
+    },
+    {
+      term: 'acting out',
+      replacement: 'communicating distress',
+      reason: 'Frame behaviour as communication of emotional distress or unmet needs.',
+      category: 'aggressive'
+    },
+    {
+      term: 'refused to cooperate',
+      replacement: 'declined to engage',
+      reason: 'Respect individual autonomy; use neutral, non-judgemental terms.',
+      category: 'aggressive'
+    },
+    {
+      term: 'refused medication',
+      replacement: 'declined medication',
+      reason: 'People have the right to decline medication; document neutrally without punitive framing.',
+      category: 'aggressive'
+    },
+    {
+      term: 'refused support',
+      replacement: 'declined support',
+      reason: 'People have the right to decline support; document neutrally.',
+      category: 'aggressive'
+    },
+    {
+      term: 'refused food',
+      replacement: 'declined food',
+      reason: 'Document autonomy neutrally without judgement.',
+      category: 'aggressive'
+    },
+    {
+      term: 'non-compliant',
+      replacement: 'declined support',
+      reason: 'Avoid punitive compliance framing; document choices neutrally.',
+      category: 'aggressive'
+    },
+    {
+      term: 'non compliant',
+      replacement: 'declined support',
+      reason: 'Avoid punitive compliance framing; document choices neutrally.',
+      category: 'aggressive'
+    },
+    {
+      term: 'uncooperative',
+      replacement: 'declined to engage',
+      reason: 'Use objective description rather than subjective character labelling.',
+      category: 'aggressive'
+    },
+    {
+      term: 'aggressive',
+      replacement: 'visibly distressed',
+      reason: 'Describe distress and behaviour neutrally rather than using subjective, stigmatising labels.',
+      category: 'aggressive'
+    },
+    {
+      term: 'aggressively',
+      replacement: 'in a distressed manner',
+      reason: 'Describe observable actions neutrally rather than attributing aggression.',
+      category: 'aggressive'
+    },
+    {
+      term: 'aggressiveness',
+      replacement: 'level of distress',
+      reason: 'Use de-escalating clinical terminology focused on distress.',
+      category: 'aggressive'
+    },
+    {
+      term: 'hostile',
+      replacement: 'distressed and upset',
+      reason: 'Use descriptive language rather than attributing hostile intent.',
+      category: 'aggressive'
+    },
+    {
+      term: 'hostility',
+      replacement: 'signs of distress',
+      reason: 'Describe specific observable behaviours neutrally.',
+      category: 'aggressive'
+    },
+    {
+      term: 'combative',
+      replacement: 'resisting with agitation',
+      reason: 'Avoid conflict-based terminology in care notes.',
+      category: 'aggressive'
+    },
+    {
+      term: 'manipulative',
+      replacement: 'expressing unmet needs',
+      reason: 'Avoid attributing negative character traits in professional care records.',
+      category: 'aggressive'
+    },
+    {
+      term: 'tantrum',
+      replacement: 'distress episode',
+      reason: 'Use dignified, respectful terminology for emotional overwhelm.',
+      category: 'aggressive'
+    },
+    {
+      term: 'tantrums',
+      replacement: 'distress episodes',
+      reason: 'Use dignified, respectful terminology for emotional overwhelm.',
+      category: 'aggressive'
+    },
+    {
+      term: 'violent',
+      replacement: 'physically distressed',
+      reason: 'State specific observable actions rather than broad stigmatising labels.',
+      category: 'aggressive'
+    },
+    {
+      term: 'violently',
+      replacement: 'with high physical agitation',
+      reason: 'Describe physical movements neutrally.',
+      category: 'aggressive'
+    },
+    {
+      term: 'violence',
+      replacement: 'physical distress episode',
+      reason: 'Describe specific incidents factually.',
+      category: 'aggressive'
+    },
+    {
+      term: 'disruptive',
+      replacement: 'experiencing an unsettled period',
+      reason: 'Focus on the person’s internal experience rather than inconvenience to others.',
+      category: 'aggressive'
+    },
+    {
+      term: 'threatening',
+      replacement: 'expressing intention',
+      reason: 'Document exact statements neutrally rather than applying subjective labels.',
+      category: 'aggressive'
+    },
+    {
+      term: 'belligerent',
+      replacement: 'agitated',
+      reason: 'Use neutral clinical terms rather than disparaging adjectives.',
+      category: 'aggressive'
+    },
+    {
+      term: 'defiant',
+      replacement: 'declining instructions',
+      reason: 'Respect autonomy; avoid punitive framing in care notes.',
+      category: 'aggressive'
+    },
+    {
+      term: 'sulking',
+      replacement: 'withdrawn',
+      reason: 'Use objective clinical observation instead of dismissive characterisations.',
+      category: 'aggressive'
+    },
+    {
+      term: 'unmanageable',
+      replacement: 'requiring specialist support',
+      reason: 'Focus on support needs rather than labelling the person.',
+      category: 'aggressive'
+    },
+
+    // === CATEGORY 3: Swearing & Profanity ===
+    // Multi-word phrases first
+    {
+      term: 'mother fuckers',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      category: 'profanity'
+    },
+    {
+      term: 'mother fucker',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      category: 'profanity'
+    },
+    {
+      term: 'motherfuckers',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      category: 'profanity'
+    },
+    {
+      term: 'motherfucker',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      category: 'profanity'
+    },
+    {
+      term: 'motherfucking',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in professional care logs; summarise neutrally or quote verbatim.',
+      category: 'profanity'
+    },
+    {
+      term: 'fuck off',
+      replacement: '[dismissive profanity]',
+      reason: 'Document offensive phrases neutrally or place inside direct speech quotes.',
+      category: 'profanity'
+    },
+    {
+      term: 'fucked up',
+      replacement: 'distressed / unsettled',
+      reason: 'Use professional clinical wording instead of colloquial vulgarities.',
+      category: 'profanity'
+    },
+    {
+      term: 'piss off',
+      replacement: '[dismissive vulgarity]',
+      reason: 'Document offensive phrases neutrally or place inside direct speech quotes.',
+      category: 'profanity'
+    },
+    {
+      term: 'pissed off',
+      replacement: 'visibly agitated',
+      reason: 'Use professional clinical language instead of informal vulgarities.',
+      category: 'profanity'
+    },
+    {
+      term: 'son of a bitch',
+      replacement: '[profanity]',
+      reason: 'Inappropriate profanity; summarise neutrally.',
+      category: 'profanity'
+    },
+    {
+      term: 'piece of shit',
+      replacement: '[profanity]',
+      reason: 'Inappropriate profanity; summarise neutrally.',
+      category: 'profanity'
+    },
+    {
+      term: 'full of shit',
+      replacement: 'inaccurate',
+      reason: 'Document factual inaccuracies neutrally without vulgarities.',
+      category: 'profanity'
+    },
+    {
+      term: 'bullshit',
+      replacement: 'inaccurate information',
+      reason: 'Document inaccuracies factually without profanity in care records.',
+      category: 'profanity'
+    },
+    // Single profanity terms
+    {
+      term: 'fucking',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in formal care records; summarise neutrally or quote verbatim.',
+      category: 'profanity'
+    },
+    {
+      term: 'fucked',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in formal care records; summarise neutrally.',
+      category: 'profanity'
+    },
+    {
+      term: 'fucker',
+      replacement: '[profanity]',
+      reason: 'Avoid offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'fuckers',
+      replacement: '[profanity]',
+      reason: 'Avoid offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'fucks',
+      replacement: '[profanity]',
+      reason: 'Avoid offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'fuck',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in formal care records; summarise neutrally or quote verbatim.',
+      category: 'profanity'
+    },
+    {
+      term: 'shitty',
+      replacement: 'distressing',
+      reason: 'Avoid informal vulgarities in professional care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'shitting',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in formal care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'shits',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in formal care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'shit',
+      replacement: '[profanity]',
+      reason: 'Avoid profanity in formal care records; summarise neutrally.',
+      category: 'profanity'
+    },
+    {
+      term: 'cunts',
+      replacement: '[profanity]',
+      reason: 'Severely offensive language; record objectively or quote verbatim if legally required.',
+      category: 'profanity'
+    },
+    {
+      term: 'cunt',
+      replacement: '[profanity]',
+      reason: 'Severely offensive language; record objectively or quote verbatim if legally required.',
+      category: 'profanity'
+    },
+    {
+      term: 'bitches',
+      replacement: '[profanity]',
+      reason: 'Inappropriate and offensive language.',
+      category: 'profanity'
+    },
+    {
+      term: 'bitching',
+      replacement: 'complaining',
+      reason: 'Use professional clinical wording.',
+      category: 'profanity'
+    },
+    {
+      term: 'bitch',
+      replacement: '[profanity]',
+      reason: 'Inappropriate and offensive language.',
+      category: 'profanity'
+    },
+    {
+      term: 'bastards',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care notes.',
+      category: 'profanity'
+    },
+    {
+      term: 'bastard',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care notes.',
+      category: 'profanity'
+    },
+    {
+      term: 'assholes',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'asshole',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'arseholes',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'arsehole',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'dickhead',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'dickheads',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'dicks',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'dick',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'wankers',
+      replacement: '[profanity]',
+      reason: 'Offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'wanker',
+      replacement: '[profanity]',
+      reason: 'Offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'twats',
+      replacement: '[profanity]',
+      reason: 'Offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'twat',
+      replacement: '[profanity]',
+      reason: 'Offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'pricks',
+      replacement: '[profanity]',
+      reason: 'Offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'prick',
+      replacement: '[profanity]',
+      reason: 'Offensive language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'bollocks',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'pissing',
+      replacement: '[vulgarity]',
+      reason: 'Avoid vulgarities in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'piss',
+      replacement: '[vulgarity]',
+      reason: 'Avoid vulgarities in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'crap',
+      replacement: 'unprofessional language',
+      reason: 'Maintain professional documentation standards.',
+      category: 'profanity'
+    },
+    {
+      term: 'dammit',
+      replacement: 'frustrated expression',
+      reason: 'Use neutral professional wording.',
+      category: 'profanity'
+    },
+    {
+      term: 'damned',
+      replacement: 'frustrated expression',
+      reason: 'Use neutral professional wording.',
+      category: 'profanity'
+    },
+    {
+      term: 'damn',
+      replacement: 'frustrated expression',
+      reason: 'Use neutral professional wording.',
+      category: 'profanity'
+    },
+    {
+      term: 'bloody',
+      replacement: 'strongly',
+      reason: 'Avoid colloquial vulgarities in care records.',
+      category: 'profanity'
+    },
+    {
+      term: 'sluts',
+      replacement: '[profanity]',
+      reason: 'Offensive/abusive language.',
+      category: 'profanity'
+    },
+    {
+      term: 'slut',
+      replacement: '[profanity]',
+      reason: 'Offensive/abusive language.',
+      category: 'profanity'
+    },
+    {
+      term: 'whores',
+      replacement: '[profanity]',
+      reason: 'Offensive/abusive language.',
+      category: 'profanity'
+    },
+    {
+      term: 'whore',
+      replacement: '[profanity]',
+      reason: 'Offensive/abusive language.',
+      category: 'profanity'
+    },
+    {
+      term: 'cocksucker',
+      replacement: '[profanity]',
+      reason: 'Inappropriate profanity.',
+      category: 'profanity'
+    },
+    {
+      term: 'cocks',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language.',
+      category: 'profanity'
+    },
+    {
+      term: 'cock',
+      replacement: '[profanity]',
+      reason: 'Inappropriate language.',
+      category: 'profanity'
     }
   ];
+
+  // Shortcut for core pairs
+  const CARE_WORD_PAIRS = ALL_DICTIONARY_PAIRS.filter(p => p.category === 'core');
 
   // Preset test notes corresponding to the 10 published hackathon judging tests
   const TEST_PRESETS = {
@@ -72,14 +670,22 @@
     7: 'Staff will contact the office. Sam made eye contact. The placement officer called.',
     8: 'Sam said, "The client attended family contact." Staff recorded family contact at 18:00.',
     9: 'At 18:40, Alex reported that the client pushed Sam and left a bruise.',
-    10: 'Everyone ate dinner.'
+    10: 'Everyone ate dinner.',
+    demo_aggressive: 'The client was aggressive and non-compliant during morning support.',
+    demo_swearing: 'The client shouted fuck off and bullshit at the office staff.',
+    demo_quotes: 'Sam said, "The client shouted fuck off!" Staff recorded family contact at 18:00.'
   };
 
   // --- 2. State Management ---
   const state = {
     originalNote: '',
-    suggestions: [], // Array of { id, start, end, originalMatched, term, replacement, reason, status: 'pending'|'accepted'|'ignored' }
-    reviewedText: ''
+    suggestions: [], // Array of { id, start, end, originalMatched, term, replacement, reason, category, status: 'pending'|'accepted'|'ignored' }
+    reviewedText: '',
+    categories: {
+      core: true,
+      aggressive: true,
+      profanity: true
+    }
   };
 
   // --- 3. DOM Elements ---
@@ -89,6 +695,9 @@
     inputError: document.getElementById('inputError'),
     btnCheckNote: document.getElementById('btnCheckNote'),
     btnClearNote: document.getElementById('btnClearNote'),
+    filterCore: document.getElementById('filterCore'),
+    filterAggressive: document.getElementById('filterAggressive'),
+    filterProfanity: document.getElementById('filterProfanity'),
     comparisonSection: document.getElementById('comparisonSection'),
     originalSnapshotView: document.getElementById('originalSnapshotView'),
     reviewedNoteView: document.getElementById('reviewedNoteView'),
@@ -141,23 +750,33 @@
 
   // --- 5. Suggestion Detection Engine ---
   /**
-   * Scans a note against the 10 word pairs, enforcing:
+   * Scans a note against active word pairs, enforcing:
    * - Longer phrases before shorter substrings
    * - Whole-word boundaries (preventing "clientele" matching "client")
    * - Quote immunity (no changes inside quoted speech)
    * - Case preservation (e.g. uppercase CLIENT -> uppercase replacement)
    * @param {string} text
+   * @param {Object} options
    * @returns {Array} List of suggestion objects
    */
-  function scanNoteForSuggestions(text) {
+  function scanNoteForSuggestions(text, options = {}) {
     if (!text || !text.trim()) return [];
 
     const quoteRanges = extractQuotedRanges(text);
     const occupiedSpans = [];
     const suggestions = [];
 
+    // Filter dictionary according to active category options
+    let activePairs;
+    if (options.onlyCore) {
+      activePairs = ALL_DICTIONARY_PAIRS.filter(p => p.category === 'core');
+    } else {
+      const activeCats = options.categories || state.categories;
+      activePairs = ALL_DICTIONARY_PAIRS.filter(p => activeCats[p.category] !== false);
+    }
+
     // Ensure pairs are strictly sorted by term length descending
-    const sortedPairs = [...CARE_WORD_PAIRS].sort((a, b) => b.term.length - a.term.length);
+    const sortedPairs = [...activePairs].sort((a, b) => b.term.length - a.term.length);
 
     for (const pair of sortedPairs) {
       // Boundary check: word boundary before and after term
@@ -201,6 +820,7 @@
           term: pair.term,
           replacement,
           reason: pair.reason,
+          category: pair.category,
           status: 'pending' // 'pending' | 'accepted' | 'ignored'
         });
       }
@@ -372,9 +992,21 @@
         statusBadgeHtml = '<span class="status-pill pill-ignored">✕ Ignored</span>';
       }
 
+      let categoryBadgeHtml = '';
+      if (item.category === 'core') {
+        categoryBadgeHtml = '<span class="cat-pill cat-core">Core Care Term</span>';
+      } else if (item.category === 'aggressive') {
+        categoryBadgeHtml = '<span class="cat-pill cat-aggressive">Aggressive Tone</span>';
+      } else if (item.category === 'profanity') {
+        categoryBadgeHtml = '<span class="cat-pill cat-profanity">Profanity</span>';
+      }
+
       card.innerHTML = `
         <div class="card-top">
-          <span class="card-term-badge">Occurrence #${item.id}</span>
+          <div class="card-badges-group">
+            <span class="card-term-badge">Occurrence #${item.id}</span>
+            ${categoryBadgeHtml}
+          </div>
           ${statusBadgeHtml}
         </div>
         <div class="wording-change">
@@ -535,7 +1167,7 @@
     // Test 1: Find and explain (8 marks)
     {
       const text = 'The service user arrived.';
-      const s = scanNoteForSuggestions(text);
+      const s = scanNoteForSuggestions(text, { onlyCore: true });
       const passed = s.length === 1 &&
                      s[0].term === 'service user' &&
                      s[0].replacement === 'person we support' &&
@@ -552,7 +1184,7 @@
     // Test 2: Longer phrases (8 marks)
     {
       const text = 'The care leaver went to the contact centre for family contact.';
-      const s = scanNoteForSuggestions(text);
+      const s = scanNoteForSuggestions(text, { onlyCore: true });
       const passed = s.length === 3 &&
                      s.some(x => x.replacement === 'care-experienced person') &&
                      s.some(x => x.replacement === 'family centre') &&
@@ -569,7 +1201,7 @@
     // Test 3: Accept one (8 marks)
     {
       const text = 'The client attended family contact.';
-      const s = scanNoteForSuggestions(text);
+      const s = scanNoteForSuggestions(text, { onlyCore: true });
       const clientSug = s.find(x => x.term === 'client');
       if (clientSug) clientSug.status = 'accepted';
       const reviewed = buildReviewedText(text, s);
@@ -586,7 +1218,7 @@
     // Test 4: Ignore one (8 marks)
     {
       const text = 'The client attended family contact.';
-      const s = scanNoteForSuggestions(text);
+      const s = scanNoteForSuggestions(text, { onlyCore: true });
       const clientSug = s.find(x => x.term === 'client');
       if (clientSug) clientSug.status = 'ignored';
       const reviewed = buildReviewedText(text, s);
@@ -613,7 +1245,7 @@
       let allPassed = true;
       for (const [term, expectedRepl] of pairsToCheck) {
         const text = `Recorded wording: ${term}.`;
-        const s = scanNoteForSuggestions(text);
+        const s = scanNoteForSuggestions(text, { onlyCore: true });
         if (s.length !== 1) { allPassed = false; break; }
         s[0].status = 'accepted';
         const res = buildReviewedText(text, s);
@@ -633,7 +1265,7 @@
     // Test 6: Repeats and boundaries (8 marks)
     {
       const text = 'The client called the client. The CLIENT arrived. The clientele waited.';
-      const s = scanNoteForSuggestions(text);
+      const s = scanNoteForSuggestions(text, { onlyCore: true });
       // Expect 3 occurrences of client, none in clientele
       const countMatch = s.length === 3 &&
                          s.filter(x => x.term === 'client').length === 3 &&
@@ -653,7 +1285,7 @@
     // Test 7: Unrelated words (8 marks)
     {
       const text = 'Staff will contact the office. Sam made eye contact. The placement officer called.';
-      const s = scanNoteForSuggestions(text);
+      const s = scanNoteForSuggestions(text, { onlyCore: true });
       const passed = s.length === 0 && buildReviewedText(text, s) === text;
       results.push({
         num: 7,
@@ -667,7 +1299,7 @@
     {
       // Straight quotes
       const tStraight = 'Sam said, "The client attended family contact." Staff recorded family contact at 18:00.';
-      const sStraight = scanNoteForSuggestions(tStraight);
+      const sStraight = scanNoteForSuggestions(tStraight, { onlyCore: true });
       const straightMatch = sStraight.length === 1 && sStraight[0].term === 'family contact';
       if (sStraight[0]) sStraight[0].status = 'accepted';
       const reviewedStraight = buildReviewedText(tStraight, sStraight);
@@ -676,7 +1308,7 @@
 
       // Curly quotes
       const tCurly = 'Sam said, “The client attended family contact.” Staff recorded family contact at 18:00.';
-      const sCurly = scanNoteForSuggestions(tCurly);
+      const sCurly = scanNoteForSuggestions(tCurly, { onlyCore: true });
       const curlyMatch = sCurly.length === 1 && sCurly[0].term === 'family contact';
       if (sCurly[0]) sCurly[0].status = 'accepted';
       const reviewedCurly = buildReviewedText(tCurly, sCurly);
@@ -695,7 +1327,7 @@
     // Test 9: Preserve facts (8 marks)
     {
       const text = 'At 18:40, Alex reported that the client pushed Sam and left a bruise.';
-      const s = scanNoteForSuggestions(text);
+      const s = scanNoteForSuggestions(text, { onlyCore: true });
       if (s[0]) s[0].status = 'accepted';
       const reviewed = buildReviewedText(text, s);
       const passed = reviewed === 'At 18:40, Alex reported that the person we support pushed Sam and left a bruise.' &&
@@ -711,10 +1343,10 @@
     // Test 10: Reset state (8 marks)
     {
       // Step A: review note with flags
-      scanNoteForSuggestions('The client arrived.');
+      scanNoteForSuggestions('The client arrived.', { onlyCore: true });
       // Step B: check fresh clean note
       const freshText = 'Everyone ate dinner.';
-      const s = scanNoteForSuggestions(freshText);
+      const s = scanNoteForSuggestions(freshText, { onlyCore: true });
       const reviewed = buildReviewedText(freshText, s);
       const passed = s.length === 0 && reviewed === freshText;
       results.push({
@@ -722,6 +1354,35 @@
         title: 'Reset state',
         passed,
         details: passed ? 'Zero care flags on fresh note. Both versions show new note. Prior state cleanly reset.' : 'Failed test 10'
+      });
+    }
+
+    // Test 11 (Bonus): Extended Aggressive Tone
+    {
+      const text = 'The client was aggressive and non-compliant.';
+      const s = scanNoteForSuggestions(text);
+      const hasAggressive = s.some(x => x.term === 'aggressive');
+      const hasNonCompliant = s.some(x => x.term === 'non-compliant');
+      const passed = hasAggressive && hasNonCompliant;
+      results.push({
+        num: 11,
+        title: 'Bonus: Aggressive Language',
+        passed,
+        details: passed ? 'Correctly flagged "aggressive" → "visibly distressed" and "non-compliant" → "declined support".' : 'Failed test 11'
+      });
+    }
+
+    // Test 12 (Bonus): Extended Swearing & Quote Protection
+    {
+      const text = 'Sam said, "Fuck off!" Staff noted bullshit at 14:00.';
+      const s = scanNoteForSuggestions(text);
+      // "Fuck off!" inside quotes must NOT be flagged; "bullshit" outside quotes must be flagged
+      const passed = s.length === 1 && s[0].term === 'bullshit';
+      results.push({
+        num: 12,
+        title: 'Bonus: Swearing & Quote Immunity',
+        passed,
+        details: passed ? 'Swearing inside quotes ("Fuck off!") safely protected; swearing outside quotes ("bullshit") flagged.' : 'Failed test 12'
       });
     }
 
@@ -766,6 +1427,24 @@
     elements.btnAcceptAll.addEventListener('click', acceptAllSuggestions);
     elements.btnIgnoreAll.addEventListener('click', ignoreAllSuggestions);
     elements.btnRunSuite.addEventListener('click', runJudgingSuite);
+
+    // Filter checkboxes for dictionary categories
+    const onFilterChange = () => {
+      if (elements.filterCore) state.categories.core = elements.filterCore.checked;
+      if (elements.filterAggressive) state.categories.aggressive = elements.filterAggressive.checked;
+      if (elements.filterProfanity) state.categories.profanity = elements.filterProfanity.checked;
+      if (state.originalNote) {
+        // Re-scan with new active filters
+        state.suggestions = scanNoteForSuggestions(state.originalNote);
+        renderOriginalSnapshot();
+        renderReviewedView();
+        renderSuggestionsList();
+      }
+    };
+
+    if (elements.filterCore) elements.filterCore.addEventListener('change', onFilterChange);
+    if (elements.filterAggressive) elements.filterAggressive.addEventListener('change', onFilterChange);
+    if (elements.filterProfanity) elements.filterProfanity.addEventListener('change', onFilterChange);
 
     // Keyboard shortcut: Ctrl+Enter or Cmd+Enter to check note
     elements.noteInput.addEventListener('keydown', (e) => {

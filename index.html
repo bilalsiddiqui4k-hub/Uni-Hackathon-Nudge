@@ -59,6 +59,31 @@
             <button type="button" class="btn-preset" data-test="8" aria-label="Load Test 8: Direct quotes">Test 8</button>
             <button type="button" class="btn-preset" data-test="9" aria-label="Load Test 9: Preserve facts">Test 9</button>
             <button type="button" class="btn-preset" data-test="10" aria-label="Load Test 10: Reset state">Test 10</button>
+            <button type="button" class="btn-preset btn-preset-ext" data-test="demo_aggressive" aria-label="Demo: Aggressive Wording">Demo: Aggression</button>
+            <button type="button" class="btn-preset btn-preset-ext" data-test="demo_swearing" aria-label="Demo: Swearing">Demo: Swearing</button>
+            <button type="button" class="btn-preset btn-preset-ext" data-test="demo_quotes" aria-label="Demo: Quoted Swearing (Preserved)">Demo: Quoted Swear</button>
+          </div>
+        </div>
+
+        <!-- Dictionary Category Filters -->
+        <div class="filter-panel" role="region" aria-label="Active Dictionaries">
+          <span class="filter-label">Active Dictionaries:</span>
+          <div class="filter-options">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="filterCore" checked aria-label="Core Workshop 10 Pairs">
+              <span class="checkbox-custom"></span>
+              <span class="filter-text">Core Care Terms (10 Pairs)</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="filterAggressive" checked aria-label="Aggressive & Subjective Language">
+              <span class="checkbox-custom"></span>
+              <span class="filter-text">Aggressive &amp; Subjective Language</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="filterProfanity" checked aria-label="Swearing & Profanity">
+              <span class="checkbox-custom"></span>
+              <span class="filter-text">Swearing &amp; Profanity</span>
+            </label>
           </div>
         </div>
 
@@ -83,7 +108,7 @@
           </div>
 
           <p id="inputHint" class="input-instruction">
-            Press <strong>Check Note</strong> to scan for the 10 core care language terms.
+            Press <strong>Check Note</strong> (or Ctrl/Cmd+Enter) to scan for care terms, aggressive language, and profanities.
           </p>
           <div id="inputError" class="input-error" role="alert" style="display: none;"></div>
 

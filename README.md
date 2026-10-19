@@ -65,6 +65,27 @@ Compound and longer phrases are sorted and evaluated first to ensure greedy matc
 
 ---
 
+## Extended Care Dictionaries (Aggressive Language & Swearing)
+
+In addition to the 10 core workshop pairs, the assistant includes comprehensive professional de-escalation dictionaries that can be toggled on or off:
+
+### 1. Aggressive & Subjective Language (UK Social Care Standards)
+Flags subjective, stigmatising labels and suggests objective, person-centred alternatives:
+- `aggressive` / `aggressively` -> `visibly distressed` / `in a distressed manner`
+- `challenging behaviour` -> `distressed behaviour`
+- `non-compliant` / `uncooperative` -> `declined support` / `declined to engage`
+- `acting out` -> `communicating distress`
+- `temper tantrum` / `tantrum` -> `distress episode`
+- `refused medication` / `refused food` -> `declined medication` / `declined food`
+- `combative` / `hostile` -> `resisting with agitation` / `distressed and upset`
+- `manipulative` -> `expressing unmet needs`
+- `violent` / `violently` -> `physically distressed` / `with high physical agitation`
+
+### 2. Swearing & Profanity Filter
+- Detects vulgarities and profanities (`fuck`, `fucking`, `fuck off`, `shit`, `bullshit`, `bitch`, `bastard`, `cunt`, `asshole`, `dick`, `piss`, `pissed off`, etc.).
+- Suggests professional documentation standards: `[profanity]` or neutral summary.
+- **Quote Protection**: Direct speech in straight or curly quotes (e.g. `'Sam shouted, "Fuck off!"'`) is strictly **immune** to preserve legal verbatim witness testimony intact.
+
 ## 80 Functional Marks Breakdown (All 10 Tests Pass)
 
 | Test # | Test Name | Input & Verification | Result |
