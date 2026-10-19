@@ -120,7 +120,41 @@ ALL_DICTIONARY_PAIRS = [
     ('whore', '[profanity]', 'Offensive/abusive language.', 'profanity'),
     ('cocksucker', '[profanity]', 'Inappropriate profanity.', 'profanity'),
     ('cocks', '[profanity]', 'Inappropriate language.', 'profanity'),
-    ('cock', '[profanity]', 'Inappropriate language.', 'profanity')
+    ('cock', '[profanity]', 'Inappropriate language.', 'profanity'),
+
+    # === Safeguarding, Physical Assault (Punched) & Sexual Assault ===
+    ('claimed they were sexually assaulted', 'reported being sexually assaulted', 'Use objective reporting attribution ("reported") rather than dismissive framing ("claimed") while preserving sexual assault allegations.', 'safeguarding'),
+    ('claimed they were punched', 'reported being punched', 'Use objective reporting attribution ("reported") rather than dismissive framing ("claimed") while preserving physical assault allegation.', 'safeguarding'),
+    ('claimed to be sexually assaulted', 'reported being sexually assaulted', 'Use neutral reporting attribution ("reported").', 'safeguarding'),
+    ('claimed to be punched', 'reported being punched', 'Use neutral reporting attribution ("reported").', 'safeguarding'),
+    ('attempted sexual assault', 'attempted sexual assault', 'Safeguarding Fact: Preserve verbatim for legal evidence.', 'safeguarding'),
+    ('sexually assaulted', 'sexually assaulted', 'Safeguarding Fact: Preserve verbatim for legal evidence.', 'safeguarding'),
+    ('sexual assault', 'sexual assault', 'Safeguarding Fact: Preserve verbatim for legal evidence.', 'safeguarding'),
+    ('indecent assault', 'indecent assault', 'Safeguarding Fact: Preserve verbatim.', 'safeguarding'),
+    ('inappropriate sexual touching', 'inappropriate sexual touching', 'Safeguarding Fact: Preserve verbatim.', 'safeguarding'),
+    ('inappropriate sexual contact', 'inappropriate sexual contact', 'Safeguarding Fact: Preserve verbatim.', 'safeguarding'),
+    ('inappropriate touching', 'inappropriate touching', 'Safeguarding Fact: Preserve observable details.', 'safeguarding'),
+    ('sexual harassment', 'sexual harassment', 'Safeguarding Fact: Preserve verbatim.', 'safeguarding'),
+    ('sexual misconduct', 'sexual misconduct', 'Safeguarding Fact: Preserve verbatim.', 'safeguarding'),
+    ('sexually abused', 'sexually abused', 'Safeguarding Fact: Preserve verbatim for statutory investigation.', 'safeguarding'),
+    ('sexual abuse', 'sexual abuse', 'Safeguarding Fact: Preserve verbatim for statutory investigation.', 'safeguarding'),
+    ('punched in the face', 'punched in the face', 'Safeguarding Action: Preserve assault action and location verbatim.', 'safeguarding'),
+    ('punched in the head', 'punched in the head', 'Safeguarding Action: Preserve assault action and location verbatim.', 'safeguarding'),
+    ('punched in the stomach', 'punched in the stomach', 'Safeguarding Action: Preserve assault action and location verbatim.', 'safeguarding'),
+    ('punched in the', 'punched in the', 'Safeguarding Action: Preserve assault action verbatim.', 'safeguarding'),
+    ('was punched', 'was punched', 'Preserve Factual Action: Do not soften or euphemize assault terminology.', 'safeguarding'),
+    ('got punched', 'was punched', 'Use formal clinical phrasing ("was punched") while preserving assault term.', 'safeguarding'),
+    ('being punched', 'being punched', 'Preserve Factual Action: Keep assault action verbatim.', 'safeguarding'),
+    ('punched', 'punched', 'Preserve Factual Action: "Punched" describes a physical strike. Do not soften or remove.', 'safeguarding'),
+    ('punching', 'punching', 'Preserve Factual Action: Record specific physical action.', 'safeguarding'),
+    ('punches', 'punches', 'Preserve Factual Action: Record specific physical action.', 'safeguarding'),
+    ('headbutted', 'headbutted', 'Preserve Factual Action: Record specific physical strike.', 'safeguarding'),
+    ('strangled', 'strangled', 'Safeguarding Fact: Severe physical assault must be preserved verbatim.', 'safeguarding'),
+    ('choked', 'choked', 'Safeguarding Fact: Physical harm must be preserved verbatim.', 'safeguarding'),
+    ('groped', 'groped', 'Safeguarding Fact: Preserve verbatim for police evidence.', 'safeguarding'),
+    ('molested', 'molested', 'Safeguarding Fact: Preserve verbatim for police evidence.', 'safeguarding'),
+    ('raped', 'raped', 'Safeguarding Fact: Serious crime allegation must be preserved verbatim.', 'safeguarding'),
+    ('rape', 'rape', 'Safeguarding Fact: Serious crime allegation must be preserved verbatim.', 'safeguarding')
 ]
 
 def extract_quote_spans(text):
@@ -371,9 +405,32 @@ def run_all_tests():
     status_12 = "✓ PASS" if t12_pass else "✗ FAIL"
     print(f"\n[Bonus 12] Swearing & Direct Quote Immunity: {status_12}")
     print("           'Fuck off!' inside quotes preserved; 'bullshit' outside quotes flagged.")
+
+    # Bonus 13: Punched & Sexual Assault Fact Preservation
+    t13_text = "At 15:30, Alex reported that the client was punched in the face and alleged sexual assault."
+    t13_s = scan_note(t13_text, only_core=False)
+    t13_terms = [x['term'] for x in t13_s]
+    t13_pass = 'client' in t13_terms and 'punched in the face' in t13_terms and 'sexual assault' in t13_terms
+    # Ensure factual assault words are preserved without softening
+    punched_item = next(x for x in t13_s if x['term'] == 'punched in the face')
+    sexual_item = next(x for x in t13_s if x['term'] == 'sexual assault')
+    t13_pass = t13_pass and (punched_item['replacement'] == 'punched in the face') and (sexual_item['replacement'] == 'sexual assault')
+    status_13 = "✓ PASS" if t13_pass else "✗ FAIL"
+    print(f"\n[Bonus 13] Punched & Sexual Assault Facts  : {status_13}")
+    print("           'punched in the face' and 'sexual assault' preserved verbatim without softening.")
+
+    # Bonus 14: Non-Dismissive Reporting Attribution
+    t14_text = "The client claimed they were punched by another resident."
+    t14_s = scan_note(t14_text, only_core=False)
+    attrib_item = next((x for x in t14_s if 'claimed they were punched' in x['term']), None)
+    t14_pass = attrib_item is not None and attrib_item['replacement'] == 'reported being punched'
+    status_14 = "✓ PASS" if t14_pass else "✗ FAIL"
+    print(f"\n[Bonus 14] Non-Dismissive Attribution      : {status_14}")
+    print("           'claimed they were punched' -> 'reported being punched' (improves attribution respectfully).")
     print("=" * 75)
 
-    return 0 if (score == total_marks and t11_pass and t12_pass) else 1
+    all_bonus_pass = t11_pass and t12_pass and t13_pass and t14_pass
+    return 0 if (score == total_marks and all_bonus_pass) else 1
 
 if __name__ == "__main__":
     sys.exit(run_all_tests())

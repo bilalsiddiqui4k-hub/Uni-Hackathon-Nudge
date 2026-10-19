@@ -86,6 +86,14 @@ Flags subjective, stigmatising labels and suggests objective, person-centred alt
 - Suggests professional documentation standards: `[profanity]` or neutral summary.
 - **Quote Protection**: Direct speech in straight or curly quotes (e.g. `'Sam shouted, "Fuck off!"'`) is strictly **immune** to preserve legal verbatim witness testimony intact.
 
+### 3. Safeguarding & Assault Fact Preservation (Punched & Sexual Harm)
+In UK Social Care and according to the brief's golden rule (*"A terminology suggestion must not invent, soften or remove facts"*):
+- **Physical Assault Terms**: Words recording physical actions (`punched`, `was punched`, `punched in the face`, `struck`, `slapped`, `kicked`, `headbutted`) are flagged with a **Safeguarding Notice** and **preserved verbatim without softening or euphemizing**.
+- **Sexual Assault / Harm Terms**: Allegations of sexual harm (`sexual assault`, `sexually assaulted`, `attempted sexual assault`, `indecent assault`, `rape`, `groped`) are critical statutory safeguarding evidence and are strictly **retained unaltered** for regulatory and police evidence.
+- **Non-Dismissive Reporting Attribution**: Dismissive framing around assault is upgraded respectfully:
+  - `claimed they were punched` -> `reported being punched`
+  - `claimed they were sexually assaulted` -> `reported being sexually assaulted`
+
 ## 80 Functional Marks Breakdown (All 10 Tests Pass)
 
 | Test # | Test Name | Input & Verification | Result |

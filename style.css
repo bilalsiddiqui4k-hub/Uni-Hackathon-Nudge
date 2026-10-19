@@ -241,6 +241,17 @@ html, body {
   border-color: #f472b6;
 }
 
+.btn-preset-safeguard {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+.btn-preset-safeguard:hover {
+  background: #fee2e2;
+  color: #7f1d1d;
+  border-color: #f87171;
+}
+
 /* Dictionary Category Filter Panel */
 .filter-panel {
   background: var(--color-white);
@@ -739,6 +750,19 @@ html, body {
   background-color: #fef2f2;
   color: #b91c1c;
   border: 1px solid #fecaca;
+}
+.cat-safeguarding {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+  font-weight: 800;
+}
+
+.wording-verbatim {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: 1px solid #94a3b8 !important;
+  font-weight: 700;
 }
 
 .status-pill {

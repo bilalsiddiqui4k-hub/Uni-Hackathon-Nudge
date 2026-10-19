@@ -653,6 +653,202 @@
       replacement: '[profanity]',
       reason: 'Inappropriate language.',
       category: 'profanity'
+    },
+
+    // === CATEGORY 4: Safeguarding, Physical Assault (Punched) & Sexual Assault ===
+    // Mandatory evidence preservation: factual allegations must NEVER be softened or euphemized
+    // Multi-word phrases first
+    {
+      term: 'claimed they were sexually assaulted',
+      replacement: 'reported being sexually assaulted',
+      reason: 'Use objective reporting attribution ("reported") rather than dismissive framing ("claimed") while preserving the sexual assault allegation intact.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'claimed they were punched',
+      replacement: 'reported being punched',
+      reason: 'Use objective reporting attribution ("reported") rather than dismissive framing ("claimed") while preserving the physical assault term intact.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'claimed to be sexually assaulted',
+      replacement: 'reported being sexually assaulted',
+      reason: 'Use neutral reporting attribution ("reported") while preserving sexual assault allegations.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'claimed to be punched',
+      replacement: 'reported being punched',
+      reason: 'Use neutral reporting attribution ("reported") while preserving the action of being punched.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'attempted sexual assault',
+      replacement: 'attempted sexual assault',
+      reason: 'Safeguarding Critical Fact: Allegations of attempted sexual assault must be preserved verbatim for police evidence and DSL escalation. Do not soften.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'sexually assaulted',
+      replacement: 'sexually assaulted',
+      reason: 'Safeguarding Critical Fact: Factual allegations of sexual assault must be preserved verbatim for legal and police evidence. Do not soften or alter.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'sexual assault',
+      replacement: 'sexual assault',
+      reason: 'Safeguarding Critical Fact: The term "sexual assault" describes a serious safeguarding and criminal allegation. Preserve verbatim without alteration.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'indecent assault',
+      replacement: 'indecent assault',
+      reason: 'Safeguarding Critical Fact: Legal and safeguarding terminology must be preserved verbatim.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'inappropriate sexual touching',
+      replacement: 'inappropriate sexual touching',
+      reason: 'Safeguarding Critical Fact: Specific physical description must be preserved verbatim for incident logging.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'inappropriate sexual contact',
+      replacement: 'inappropriate sexual contact',
+      reason: 'Safeguarding Critical Fact: Specific description must be preserved verbatim for incident logging.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'inappropriate touching',
+      replacement: 'inappropriate touching',
+      reason: 'Safeguarding Fact: Observable boundary violations must remain documented factually.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'sexual harassment',
+      replacement: 'sexual harassment',
+      reason: 'Safeguarding Fact: Factual recording of sexual harassment must be preserved verbatim.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'sexual misconduct',
+      replacement: 'sexual misconduct',
+      reason: 'Safeguarding Fact: Factual recording must remain intact.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'sexually abused',
+      replacement: 'sexually abused',
+      reason: 'Safeguarding Critical Fact: Severe abuse allegations must be preserved verbatim for police investigation.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'sexual abuse',
+      replacement: 'sexual abuse',
+      reason: 'Safeguarding Critical Fact: Severe abuse allegations must be preserved verbatim for police investigation.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'punched in the face',
+      replacement: 'punched in the face',
+      reason: 'Safeguarding Action & Injury: Action of being punched and anatomical location must be preserved verbatim for medical and police evidence.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'punched in the head',
+      replacement: 'punched in the head',
+      reason: 'Safeguarding Action & Injury: Action of being punched and anatomical location must be preserved verbatim for medical and police evidence.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'punched in the stomach',
+      replacement: 'punched in the stomach',
+      reason: 'Safeguarding Action: Preserve assault action and location verbatim.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'punched in the',
+      replacement: 'punched in the',
+      reason: 'Safeguarding Action: Specific physical assault action must be preserved verbatim.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'was punched',
+      replacement: 'was punched',
+      reason: 'Preserve Factual Action: "Was punched" records a direct physical strike. Do not soften or euphemize.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'got punched',
+      replacement: 'was punched',
+      reason: 'Use professional clinical phrasing ("was punched") while preserving the physical assault action.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'being punched',
+      replacement: 'being punched',
+      reason: 'Preserve Factual Action: The action of being punched must remain factually documented.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'punched',
+      replacement: 'punched',
+      reason: 'Preserve Factual Action: "Punched" describes a specific physical strike. Per care standards, do not soften, remove, or euphemize factual assault terms.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'punching',
+      replacement: 'punching',
+      reason: 'Preserve Factual Action: Specific physical action must be recorded factually.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'punches',
+      replacement: 'punches',
+      reason: 'Preserve Factual Action: Specific physical action must be recorded factually.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'headbutted',
+      replacement: 'headbutted',
+      reason: 'Preserve Factual Action: Specific physical strike must be preserved verbatim.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'strangled',
+      replacement: 'strangled',
+      reason: 'Safeguarding Critical Fact: Severe physical assault must be preserved verbatim and escalated immediately to emergency services.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'choked',
+      replacement: 'choked',
+      reason: 'Safeguarding Critical Fact: Physical harm must be preserved verbatim.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'groped',
+      replacement: 'groped',
+      reason: 'Safeguarding Critical Fact: Non-consensual sexual contact allegation must be preserved verbatim for police evidence.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'molested',
+      replacement: 'molested',
+      reason: 'Safeguarding Critical Fact: Sexual abuse allegation must be preserved verbatim.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'raped',
+      replacement: 'raped',
+      reason: 'Safeguarding Critical Fact: Serious crime allegation must be preserved verbatim and escalated immediately to emergency services and DSL.',
+      category: 'safeguarding'
+    },
+    {
+      term: 'rape',
+      replacement: 'rape',
+      reason: 'Safeguarding Critical Fact: Serious crime allegation must be preserved verbatim.',
+      category: 'safeguarding'
     }
   ];
 
@@ -673,7 +869,9 @@
     10: 'Everyone ate dinner.',
     demo_aggressive: 'The client was aggressive and non-compliant during morning support.',
     demo_swearing: 'The client shouted fuck off and bullshit at the office staff.',
-    demo_quotes: 'Sam said, "The client shouted fuck off!" Staff recorded family contact at 18:00.'
+    demo_quotes: 'Sam said, "The client shouted fuck off!" Staff recorded family contact at 18:00.',
+    demo_assault: 'At 15:30, Alex reported that the client was punched in the face and alleged sexual assault.',
+    demo_attribution: 'The client claimed they were punched by another resident.'
   };
 
   // --- 2. State Management ---
@@ -684,7 +882,8 @@
     categories: {
       core: true,
       aggressive: true,
-      profanity: true
+      profanity: true,
+      safeguarding: true
     }
   };
 
@@ -698,6 +897,7 @@
     filterCore: document.getElementById('filterCore'),
     filterAggressive: document.getElementById('filterAggressive'),
     filterProfanity: document.getElementById('filterProfanity'),
+    filterSafeguarding: document.getElementById('filterSafeguarding'),
     comparisonSection: document.getElementById('comparisonSection'),
     originalSnapshotView: document.getElementById('originalSnapshotView'),
     reviewedNoteView: document.getElementById('reviewedNoteView'),
@@ -993,13 +1193,21 @@
       }
 
       let categoryBadgeHtml = '';
+      let isPreservedFact = false;
       if (item.category === 'core') {
         categoryBadgeHtml = '<span class="cat-pill cat-core">Core Care Term</span>';
       } else if (item.category === 'aggressive') {
         categoryBadgeHtml = '<span class="cat-pill cat-aggressive">Aggressive Tone</span>';
       } else if (item.category === 'profanity') {
         categoryBadgeHtml = '<span class="cat-pill cat-profanity">Profanity</span>';
+      } else if (item.category === 'safeguarding') {
+        categoryBadgeHtml = '<span class="cat-pill cat-safeguarding">Safeguarding / Legal Fact</span>';
+        isPreservedFact = (item.originalMatched.toLowerCase() === item.replacement.toLowerCase());
       }
+
+      const acceptBtnLabel = item.status === 'accepted'
+        ? (isPreservedFact ? 'Fact Verified' : 'Accepted')
+        : (isPreservedFact ? 'Verify & Retain Fact' : 'Accept Change');
 
       card.innerHTML = `
         <div class="card-top">
@@ -1012,15 +1220,15 @@
         <div class="wording-change">
           <span class="wording-source">${escapeHtml(item.originalMatched)}</span>
           <span class="arrow-icon" aria-hidden="true">→</span>
-          <span class="wording-replacement">${escapeHtml(item.replacement)}</span>
+          <span class="wording-replacement ${isPreservedFact ? 'wording-verbatim' : ''}">${escapeHtml(item.replacement)}</span>
         </div>
         <p class="suggestion-reason">${escapeHtml(item.reason)}</p>
         <div class="card-actions">
           <button type="button" class="btn-accept" data-action="accept" data-id="${item.id}" aria-label="Accept occurrence ${item.id}: replace ${escapeHtml(item.originalMatched)} with ${escapeHtml(item.replacement)}">
-            ${item.status === 'accepted' ? 'Accepted' : 'Accept Change'}
+            ${acceptBtnLabel}
           </button>
           <button type="button" class="btn-ignore" data-action="ignore" data-id="${item.id}" aria-label="Ignore occurrence ${item.id}: keep ${escapeHtml(item.originalMatched)}">
-            ${item.status === 'ignored' ? 'Ignored' : 'Ignore'}
+            ${item.status === 'ignored' ? 'Dismissed' : 'Dismiss'}
           </button>
         </div>
       `;
@@ -1433,6 +1641,7 @@
       if (elements.filterCore) state.categories.core = elements.filterCore.checked;
       if (elements.filterAggressive) state.categories.aggressive = elements.filterAggressive.checked;
       if (elements.filterProfanity) state.categories.profanity = elements.filterProfanity.checked;
+      if (elements.filterSafeguarding) state.categories.safeguarding = elements.filterSafeguarding.checked;
       if (state.originalNote) {
         // Re-scan with new active filters
         state.suggestions = scanNoteForSuggestions(state.originalNote);
@@ -1445,6 +1654,7 @@
     if (elements.filterCore) elements.filterCore.addEventListener('change', onFilterChange);
     if (elements.filterAggressive) elements.filterAggressive.addEventListener('change', onFilterChange);
     if (elements.filterProfanity) elements.filterProfanity.addEventListener('change', onFilterChange);
+    if (elements.filterSafeguarding) elements.filterSafeguarding.addEventListener('change', onFilterChange);
 
     // Keyboard shortcut: Ctrl+Enter or Cmd+Enter to check note
     elements.noteInput.addEventListener('keydown', (e) => {
